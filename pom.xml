@@ -6,7 +6,7 @@
 	<groupId>com.sbev.proxibanque</groupId>
 	<artifactId>proxibanquev4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>ProxiBanquev4</name>
 	<description>Projet ProxiBanque version 4</description>
