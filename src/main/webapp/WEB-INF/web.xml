@@ -33,9 +33,9 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			/WEB-INF/data.xml
-			/WEB-INF/service.xml 
-			/WEB-INF/servlet.xml
+			/src/main/resources/data.xml
+			/src/main/resources/service.xml 
+			/src/main/resources/servlet.xml
 		</param-value>
 
 	</context-param>
