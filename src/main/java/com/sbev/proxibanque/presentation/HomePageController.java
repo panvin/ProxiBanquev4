@@ -18,10 +18,8 @@ import com.sbev.proxibanque.service.ClientService;
 
 @Controller
 public class HomePageController {
-	/*
-	 * INJECTION Spring d'un bean Service dans le controleur. Le bean Service
-	 * est configuré dans service.xml
-	 */
+	
+	
 	private ClientService clientService;
 
 	@Autowired	
@@ -30,10 +28,10 @@ public class HomePageController {
 	}
 
 	@RequestMapping("/clients")
-	public void clients(Model model) {
+	protected ModelAndView listeClients(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	
 		List<Client> listeClients = clientService.lireToutClient();
-		model.addAttribute("clients", listeClients);
+		return new ModelAndView("clients");
 	}
-
 	
 }
