@@ -32,7 +32,7 @@
 	<!-- Tenir compte de la configuration des annotations -->
 	<context:annotation-config></context:annotation-config>
 	<!-- location des composants -->
-	<context:component-scan base-package="com.sbev"></context:component-scan>
+	<context:component-scan base-package="com.sbev.proxibanque"></context:component-scan>
 	<!-- handler mapping pour les annotations -->
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>

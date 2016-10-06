@@ -27,7 +27,6 @@ public class ClientService {
 	 * Constructeur du service client
 	 */
 	public ClientService() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**

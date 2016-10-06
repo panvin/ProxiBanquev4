@@ -5,8 +5,6 @@
 
 <import resource="data.xml"/>
 
-	<bean id="employeManager" class="com.objis.springmvcdemo.service.EmployeManager">
-		<property name="employeDao" ref="employeJdbcDaoSupport" />
-	</bean>
+
 
 </beans>
