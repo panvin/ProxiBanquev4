@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
+import com.sbev.proxibanque.domaine.Client;
+import com.sbev.proxibanque.service.ClientService;
+
 
 @Controller
 public class HomePageController {
@@ -28,7 +31,7 @@ public class HomePageController {
 
 	@RequestMapping("/clients")
 	public void clients(Model model) {
-		List<Client> listeClients = clientService.getAllClient();
+		List<Client> listeClients = clientService.lireToutClient();
 		model.addAttribute("clients", listeClients);
 	}
 
