@@ -6,7 +6,6 @@ import com.sbev.proxibanque.domaine.Conseiller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.sbev.proxibanque.dao.IClientDao;
@@ -22,7 +21,6 @@ import com.sbev.proxibanque.dao.IClientDao;
 public class ClientService {
 
 	@Autowired
-	@Qualifier("clientDao")
 	private IClientDao clientDao;
 	
 	/**
@@ -33,20 +31,12 @@ public class ClientService {
 	}
 	
 	/**
-	 * Méthode pour créer un client en base de données
-	 * @param client Le client qu'on souhaite stocker en base de données (objet de type CLient)
-	 * @return Le client qui a été sauvegardé en base de données (objet de type Client)
+	 * Méthode permettant de créer ou de modifier un client en base de données
+	 * @param client Le client que l'on souhaite stocker ou modifier en base de données (objet de type Client)
+	 * @return Le client qui a été sauvegardé ou modifié en base de données (objet de type Client)
 	 */
-	public Client creerClient(Client client){
-		return clientDao.save(client);
-	}
-	
-	/**
-	 * Méthode permettant d'appeler la DAoO pour modifier un client dans la base de données
-	 * @param client Le client qu'on souhaite modifier en base de données
-	 */
-	public void modifierClient(Client client){
-		clientDao.flush(client);
+	public Client sauverClient(Client client){
+		return clientDao.saveAndFlush(client);
 	}
 	
 	/**
@@ -80,7 +70,7 @@ public class ClientService {
 	 * @return Une liste de client (objet de type List Client) 
 	 */
 	public List<Client> lireClientParConseiller(Conseiller conseiller){
-		clientDao.findByConseiller(conseiller);
+		return clientDao.findByConseiller(conseiller);
 	}
 	
 
