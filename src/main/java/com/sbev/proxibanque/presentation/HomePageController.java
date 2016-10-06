@@ -31,7 +31,7 @@ public class HomePageController {
 	protected ModelAndView listeClients(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	
 		List<Client> listeClients = clientService.lireToutClient();
-		return new ModelAndView("clients");
+		return new ModelAndView("clients", "clients", listeClients);
 	}
 	
 }
