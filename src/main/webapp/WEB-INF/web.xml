@@ -39,5 +39,7 @@
 		</param-value>
 
 	</context-param>
+	
+	<!-- TODO : ajouter les configurations JAAS -->
 
 </web-app>
