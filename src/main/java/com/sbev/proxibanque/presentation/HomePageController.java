@@ -21,6 +21,15 @@ public class HomePageController {
 	
 	
 	private ClientService clientService;
+	private ConseillerService conseillerService;
+
+	
+	
+	// setters
+	@Autowired
+	public void setConseillerService(ConseillerService conseillerService) {
+		this.conseillerService = conseillerService;
+	}
 
 	@Autowired	
 	public void setClientService(ClientService clientService) {
@@ -32,6 +41,13 @@ public class HomePageController {
 	
 		List<Client> listeClients = clientService.lireToutClient();
 		return new ModelAndView("clients", "clients", listeClients);
+	}
+	
+	@RequestMapping("/conseillers")
+	protected ModelAndView listeConseillers(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		List<Conseiller> listeConseillers = conseillerService.lireToutConseillers(); 
+		return new ModelAndView("conseillers", "conseillers", listeConseillers);
 	}
 	
 }
