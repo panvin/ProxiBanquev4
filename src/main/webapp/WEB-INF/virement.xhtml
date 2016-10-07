@@ -21,7 +21,28 @@
 
 				<!-- TODO : Faire deux blocs (1) Compte à débiter (2) Compte à créditer -->
 				<!-- + en dessous sur un bloc de toute la largeur le montant + bouton "transférer" -->
-				
+				<div class="row">
+					<div class="col-md-6">
+					<h2>Compte à débiter</h2>
+					<h:form>
+					<p:panelGrid columns="2">
+					<h:outputText value="Numéro de compte : *" />
+                    <p:inputText value="#{compte.id}" required="true" label="numCompteDeb"/>
+					<p:commandButton value="Afficher client" id="ajax" update="growl" actionListener="#{buttonView.buttonAction}" styleClass="ui-priority-primary" />
+					</p:panelGrid>
+					</h:form>
+					</div>
+					<div class="col-md-6">
+					<h2>Compte à créditer</h2>
+					<h:form>
+					<p:panelGrid columns="2">
+					<h:outputText value="Numéro de compte : *" />
+                    <p:inputText value="#{compte.id}" required="true" label="numCompteCred"/>
+					<p:commandButton value="Afficher client" id="ajax" update="growl" actionListener="#{buttonView.buttonAction}" styleClass="ui-priority-primary" />
+					</p:panelGrid>
+					</h:form>
+					</div>
+				</div>
 				
 
 			</center>

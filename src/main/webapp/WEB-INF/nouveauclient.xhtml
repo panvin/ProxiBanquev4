@@ -49,15 +49,14 @@
 						<h:outputText value="Voulez-vous un compte épargne?" />
 						<p:selectBooleanButton id="value2"
 							value="#{selectBooleanView.value2}" onLabel="Yes" offLabel="No"
-							onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:60px">
+							onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:60px" />
 
 							<h:commandButton type="submit" value="Ajouter"
 								action="#{client.create()}" />
 					</h:panelGrid>
 				</p:panel>
 			</center>
+		</ui:define>
+	</ui:composition>
 </body>
-
-</ui:define>
-</ui:composition>
 </html>
