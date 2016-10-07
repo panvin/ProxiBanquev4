@@ -15,7 +15,6 @@ import org.springframework.web.servlet.mvc.AbstractController;
 import com.sbev.proxibanque.domaine.Client;
 import com.sbev.proxibanque.service.ClientService;
 
-
 @Controller
 public class HomePageController {
 	
@@ -49,5 +48,25 @@ public class HomePageController {
 		List<Conseiller> listeConseillers = conseillerService.lireToutConseillers(); 
 		return new ModelAndView("conseillers", "conseillers", listeConseillers);
 	}
+	//implémenter la méthode
+	@RequestMapping("/nouveauclient")
+	
+		
+
+	//implémenter la méthode
+	@RequestMapping("/transactions")
+	
+	
+		
+	//implémenter la méthode
+	@RequestMapping("/virement")
+
+		
+		
+	//implémenter la méthode
+	@RequestMapping("/login")
+	
+		
+	
 	
 }
