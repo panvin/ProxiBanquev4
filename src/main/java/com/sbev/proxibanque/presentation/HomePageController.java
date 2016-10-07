@@ -15,13 +15,14 @@ import org.springframework.web.servlet.mvc.AbstractController;
 import com.sbev.proxibanque.domaine.Client;
 import com.sbev.proxibanque.service.ClientService;
 
-
 @Controller
 public class HomePageController {
 	
 	
 	private ClientService clientService;
 	private ConseillerService conseillerService;
+	private GerantService gerantService; 
+	private VirmementService virementService; 
 
 	
 	
@@ -49,5 +50,34 @@ public class HomePageController {
 		List<Conseiller> listeConseillers = conseillerService.lireToutConseillers(); 
 		return new ModelAndView("conseillers", "conseillers", listeConseillers);
 	}
+	//implémenter la méthode
+	@RequestMapping("/nouveauclient")
+	
+		
+
+	//implémenter la méthode
+	@RequestMapping("/transactions")
+	protected ModelAndView listeVirements(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		List<Virement> listeVirements = gerantService.lireRapportTransaction();
+		return new ModelAndView("transactions", "transactions", listeVirements); 
+	}
+	
+		
+	//implémenter la méthode
+	@RequestMapping("/virement")
+	protected ModelAndView listeVirements1(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		List<Virement> listeVirements1 = virementService.lireVirement(); 
+		return new ModelAndView("virement", "virement", listeVirement1); 
+	}
+
+		
+		
+	//implémenter la méthode
+	@RequestMapping("/login")
+	
+		
+	
 	
 }
