@@ -8,12 +8,10 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-
 </h:head>
 
 <h:body>
-
-
+	<!-- Declaration du template dont la page est cliente -->
 	<ui:composition template="/template/layout.xhtml">
 		<!-- redéfinition de la zone content du layout -->
 		<ui:define name="content">
@@ -25,19 +23,20 @@
 								style="width: 350;">
 								<p:panelGrid columns="2" cellpading="2" id="compteDeb">
 									<h:outputText value="Numéro de compte : *" />
-									<p:inputText value="#{idcompte}" required="true"
+									<p:inputText value="#{idcomptedeb}" required="true"
 										label="numCompteDeb" />
 									<p:commandButton value="Afficher client" id="ajax"
-										update="display" />
+										update="displayDeb" />
 									<h:outputText value="Nom : " />
-									<p:inputText id="display"
-										value="#{idcompte.compte.titulaire.getNom}" disabled="true" />
+									<p:inputText id="displayDeb"
+										value="#{idcomptedeb.compte.titulaire.getNom}" disabled="true" />
 									<h:outputText value="Prénom : " />
-									<p:inputText id="display"
-										value="#{idcompte.compte.titulaire.getPrenom}" disabled="true" />
-									<h:outputText value="Solde : " />
-									<p:inputText id="display" value="#{idcompte.compte.getSolde}"
+									<p:inputText id="displayDeb"
+										value="#{idcomptedeb.compte.titulaire.getPrenom}"
 										disabled="true" />
+									<h:outputText value="Solde : " />
+									<p:inputText id="displayDeb"
+										value="#{idcomptedeb.compte.getSolde}" disabled="true" />
 								</p:panelGrid>
 							</p:panel>
 						</div>
@@ -46,19 +45,21 @@
 								style="width: 350;">
 								<p:panelGrid columns="2" cellpading="2" id="compteCred">
 									<h:outputText value="Numéro de compte : *" />
-									<p:inputText value="#{idcompte}" required="true"
+									<p:inputText value="#{idcomptecred}" required="true"
 										label="numCompteCred" />
 									<p:commandButton value="Afficher client" id="ajax"
-										update="display" />
+										update="displayCred" />
 									<h:outputText value="Nom : " />
-									<p:inputText id="display"
-										value="#{idcompte.compte.titulaire.getNom}" disabled="true" />
-									<h:outputText value="Prénom : " />
-									<p:inputText id="display"
-										value="#{idcompte.compte.titulaire.getPrenom}" disabled="true" />
-									<h:outputText value="Solde : " />
-									<p:inputText id="display" value="#{idcompte.compte.getSolde}"
+									<p:inputText id="displayCred"
+										value="#{idcomptecred.compte.titulaire.getNom}"
 										disabled="true" />
+									<h:outputText value="Prénom : " />
+									<p:inputText id="displayCred"
+										value="#{idcomptecred.compte.titulaire.getPrenom}"
+										disabled="true" />
+									<h:outputText value="Solde : " />
+									<p:inputText id="displayCred"
+										value="#{idcomptecred.compte.getSolde}" disabled="true" />
 								</p:panelGrid>
 							</p:panel>
 						</div>
