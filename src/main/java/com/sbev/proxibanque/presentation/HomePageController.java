@@ -22,6 +22,7 @@ public class HomePageController {
 	private ClientService clientService;
 	private ConseillerService conseillerService;
 	private GerantService gerantService; 
+	private VirmementService virementService; 
 
 	
 	
@@ -65,6 +66,11 @@ public class HomePageController {
 		
 	//implémenter la méthode
 	@RequestMapping("/virement")
+	protected ModelAndView listeVirements1(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		List<Virement> listeVirements1 = virementService.lireVirement(); 
+		return new ModelAndView("virement", "virement", listeVirement1); 
+	}
 
 		
 		
