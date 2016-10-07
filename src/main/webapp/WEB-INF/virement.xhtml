@@ -18,33 +18,59 @@
 		<!-- redéfinition de la zone content du layout -->
 		<ui:define name="content">
 			<center>
-
-				<!-- TODO : Faire deux blocs (1) Compte à débiter (2) Compte à créditer -->
-				<!-- + en dessous sur un bloc de toute la largeur le montant + bouton "transférer" -->
-				<div class="row">
-					<div class="col-md-6">
-					<h2>Compte à débiter</h2>
-					<h:form>
-					<p:panelGrid columns="2">
-					<h:outputText value="Numéro de compte : *" />
-                    <p:inputText value="#{compte.id}" required="true" label="numCompteDeb"/>
-					<p:commandButton value="Afficher client" id="ajax" update="growl" actionListener="#{buttonView.buttonAction}" styleClass="ui-priority-primary" />
-					</p:panelGrid>
-					</h:form>
+				<h:form>
+					<div class="row">
+						<div class="col-md-6">
+							<p:panel id="compteDeb" header="Client débiteur"
+								style="width: 350;">
+								<p:panelGrid columns="2" cellpading="2" id="compteDeb">
+									<h:outputText value="Numéro de compte : *" />
+									<p:inputText value="#{idcompte}" required="true"
+										label="numCompteDeb" />
+									<p:commandButton value="Afficher client" id="ajax"
+										update="display" />
+									<h:outputText value="Nom : " />
+									<p:inputText id="display"
+										value="#{idcompte.compte.titulaire.getNom}" disabled="true" />
+									<h:outputText value="Prénom : " />
+									<p:inputText id="display"
+										value="#{idcompte.compte.titulaire.getPrenom}" disabled="true" />
+									<h:outputText value="Solde : " />
+									<p:inputText id="display" value="#{idcompte.compte.getSolde}"
+										disabled="true" />
+								</p:panelGrid>
+							</p:panel>
+						</div>
+						<div class="col-md-6">
+							<p:panel id="compteCred" header="Client créditeur"
+								style="width: 350;">
+								<p:panelGrid columns="2" cellpading="2" id="compteCred">
+									<h:outputText value="Numéro de compte : *" />
+									<p:inputText value="#{idcompte}" required="true"
+										label="numCompteCred" />
+									<p:commandButton value="Afficher client" id="ajax"
+										update="display" />
+									<h:outputText value="Nom : " />
+									<p:inputText id="display"
+										value="#{idcompte.compte.titulaire.getNom}" disabled="true" />
+									<h:outputText value="Prénom : " />
+									<p:inputText id="display"
+										value="#{idcompte.compte.titulaire.getPrenom}" disabled="true" />
+									<h:outputText value="Solde : " />
+									<p:inputText id="display" value="#{idcompte.compte.getSolde}"
+										disabled="true" />
+								</p:panelGrid>
+							</p:panel>
+						</div>
 					</div>
-					<div class="col-md-6">
-					<h2>Compte à créditer</h2>
-					<h:form>
-					<p:panelGrid columns="2">
-					<h:outputText value="Numéro de compte : *" />
-                    <p:inputText value="#{compte.id}" required="true" label="numCompteCred"/>
-					<p:commandButton value="Afficher client" id="ajax" update="growl" actionListener="#{buttonView.buttonAction}" styleClass="ui-priority-primary" />
-					</p:panelGrid>
-					</h:form>
+					<div>
+						<h:outputText value="Montant : *" />
+						<p:inputText value="#{montant}" required="true" label="montant" />
+						<p:growl id="growl" life="20" />
+						<p:commandButton value="Transférer" id="virement" update="growl"
+							actionListener="#{buttonView.buttonAction}" action="virement" />
 					</div>
-				</div>
-				
-
+				</h:form>
 			</center>
 		</ui:define>
 	</ui:composition>
